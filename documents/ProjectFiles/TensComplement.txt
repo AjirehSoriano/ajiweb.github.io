@@ -1,0 +1,77 @@
+
+package tenscomplement;
+
+
+public class TensComplement{
+
+  
+    public static void main(String[] args) {
+      
+      
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        System.out.println("*Soriano, Ajireh Ramielle 10s Complement*");
+        System.out.print("Enter Minuend: ");
+        int m = sc.nextInt();
+        System.out.print("Enter Subtrahend: ");
+        int s = sc.nextInt();
+        
+       
+        int length = (int)(Math.log10(m)+1);
+        String p1 = String.format("%0"+length+"d",s);
+        String temp = p1;
+        String res = "";
+        int[] newGuess = new int[temp.length()];
+        for (int i = 0; i < temp.length(); i++)
+        {
+            newGuess[i] = temp.charAt(i) - '0';
+            //i is the length of the subtrahend
+            switch (newGuess[i]) {
+                case 1:
+                    newGuess[i] = 8;
+                    break;
+                case 2:
+                    newGuess[i] = 7;
+                    break;
+                case 3:
+                    newGuess[i] = 6;
+                    break;
+                case 4:
+                    newGuess[i] = 5;
+                    break;
+                case 5:
+                    newGuess[i] = 4;
+                    break;
+                case 6:
+                    newGuess[i] = 3;
+                    break;
+                case 7:
+                    newGuess[i] = 2;
+                    break;
+                case 8:
+                    newGuess[i] = 1;
+                    break;
+                case 9:
+                    newGuess[i] = 0;
+                    break;
+                case 0:
+                    newGuess[i] = 9;
+                    break;
+                default:
+                    break;
+            }
+            res = res+newGuess[i];
+
+        }
+            int sol = Integer.parseInt(res);
+            s = sol + 1;
+            int alm = m + s;
+            
+            String stringX = Integer.toString(alm);
+            int finalX = Integer.parseInt(stringX.substring(1));
+            System.out.println("Difference is: "+ finalX);
+            
+           
+            }
+    }
+   
+
